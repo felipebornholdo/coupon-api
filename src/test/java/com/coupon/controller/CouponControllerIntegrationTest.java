@@ -140,8 +140,6 @@ class CouponControllerIntegrationTest {
                 .andExpect(status().isNotFound());
     }
 
-    // ─── DELETE ─────────────────────────────────────────────────────────────
-
     @Test
     @DisplayName("DELETE /coupon/{id} → 204 on first delete")
     void shouldReturn204OnDelete() throws Exception {

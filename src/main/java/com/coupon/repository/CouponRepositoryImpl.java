@@ -18,7 +18,7 @@ public class CouponRepositoryImpl implements CouponRepository {
 
     @Override
     public Coupon save(Coupon coupon) {
-        return jpaRepository.findByExternalId(coupon.getId())
+        return jpaRepository.findByExternalIdIncludingDeleted(coupon.getId())
                 .map(existing -> {
                     existing.applyFrom(coupon);
                     return jpaRepository.save(existing);
@@ -29,13 +29,13 @@ public class CouponRepositoryImpl implements CouponRepository {
 
     @Override
     public Optional<Coupon> findById(UUID id) {
-        return jpaRepository.findByExternalIdAndDeletedFalse(id)
+        return jpaRepository.findByExternalId(id)
                 .map(CouponEntity::toDomain);
     }
 
     @Override
     public Optional<Coupon> findByIdIncludingDeleted(UUID id) {
-        return jpaRepository.findByExternalId(id)
+        return jpaRepository.findByExternalIdIncludingDeleted(id)
                 .map(CouponEntity::toDomain);
     }
 }

@@ -2,6 +2,7 @@ package com.coupon.repository;
 
 import com.coupon.domain.Coupon;
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "coupon", indexes = @Index(name = "idx_coupon_external_id", columnList = "externalId"))
+@SQLRestriction("deleted = false")
 public class CouponEntity {
 
     @Id
