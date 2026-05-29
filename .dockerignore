@@ -1,6 +1,2 @@
 .gradle
-build/
 .idea/
-*.md
-*.txt
-
