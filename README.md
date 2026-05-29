@@ -18,15 +18,12 @@ REST API para gerenciamento de cupons de desconto.
 ```bash
 ./gradlew bootRun
 ```
-
-Acesse: `http://localhost:8080`
-
 ## Executando com Docker
 
 ```bash
-./gradlew bootJar
 docker-compose up --build
 ```
+Acesse: `http://localhost:8080`
 
 ## Documentação
 
